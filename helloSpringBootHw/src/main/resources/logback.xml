@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 로그백에 대한 설정을 해주는 로그백 설정 파일 -->
+
+<configuration>
+<!-- 콘솔 어펜더 -->
+	<appender name="consoleAppender"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>.%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n
+			</Pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>TRACE</level>
+		</filter>
+	</appender>
+
+<!-- kr.ac.hansung.cse 로거 : 로거 레벨은 DEBUG수준이며, 콘솔,일별롤링파일,분단위롤링파일에 출력됨 -->
+	<logger name="kr.ac.hansung.cse" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="consoleAppender" />
+	</logger>
+	
+	<!-- Hibernate sql의 파라미터 값을 로깅 -->
+	<logger name="org.hibernate.type" level="TRACE" />
+	
+
+<!-- 루트 로거 : 콘솔에 출력됨 -->
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="consoleAppender" />
+	</root>
+</configuration>
