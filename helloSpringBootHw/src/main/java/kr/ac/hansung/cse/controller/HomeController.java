@@ -7,9 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
+@RequestMapping("/api/v1")
 public class HomeController {
 
-	// 로거 생
+	// 로거 생성
 	static Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	// @GetMapping is a composed annotation that acts as a shortcut for
